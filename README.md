@@ -1,5 +1,5 @@
 # PFFN
-
+![PFFN Framework](https://github.com/Wang-bupt/PFFN/blob/main/PFFN.jpg)
 # Datasets
 All of the datasets mentioned in our paper are public. However, some original links of the datasets are invalid or lost. 
 
