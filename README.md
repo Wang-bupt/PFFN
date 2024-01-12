@@ -1,4 +1,4 @@
-The "resources" file is from ![this paper](https://github.com/RMSnow/WWW2021)
+The "resources" file is from [this paper](https://github.com/RMSnow/WWW2021)
 
 # PFFN
 ![PFFN Framework](https://github.com/Wang-bupt/PFFN/blob/main/PFFN.jpg)
