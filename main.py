@@ -17,9 +17,9 @@ resnet = torchvision.models.resnet50(pretrained = True)
 classify_path = './classify/classify_best_model'
 classify_model = torch.load(classify_path)
 
-imgs_path = './data_samples/imgs_set.pickle'
-texts_path = './data_samples/texts_set.pickle'
-labels_path = './data_samples/labels_set.pickle'
+imgs_path = './data/imgs_set.pickle'
+texts_path = './data/texts_set.pickle'
+labels_path = './data/labels_set.pickle'
 
 texts = torch.load(texts_path)
 labels = torch.load(labels_path)
@@ -109,10 +109,8 @@ class PFFN(nn.Module):
 
         text_sent,atn = self.attn(sentiment_f.to(torch.float32),text_tc.to(torch.float32),text_tc.to(torch.float32))
         x = self.attnf(experts_result.unsqueeze(0).unsqueeze(0),text_sent)
-     
         return x.squeeze(0).squeeze(0)
     
-
 import time
 
 def detect01(n,lab):
@@ -299,13 +297,10 @@ def train_and_valid(model, loss_function, optimizer, epochs=25):
     return model, record, best_model
 
 t = PFFN()
-t = torch.load('best_model')
+# t = torch.load('best_model')
 
 loss_func = torch.nn.BCELoss()
 optimizer = torch.optim.SGD(t.parameters(),lr=0.001)
-num_epochs = 80
+num_epochs = 30
 
 trained_model, record, best_model = train_and_valid(t, loss_func, optimizer, num_epochs)
-
-record = np.array(record)
-
